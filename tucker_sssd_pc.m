@@ -8,7 +8,7 @@ function [X, info] = tucker_sssd_pc(A, C, M, options)
 % INPUT:
 %   A       - [cell array] of size (l, d) containing the factors of the
 %               operator
-%   C       - [stucture] Tucker tensor containing the right-hand side where
+%   C       - [structure] Tucker tensor containing the right-hand side where
 %               C.core is a [numeric array] for the core tensor of size 
 %               r_1 x r_2 x ... x r_d
 %               C.factors is a [cell array] of the Tucker factor matrices 
@@ -42,7 +42,7 @@ function [X, info] = tucker_sssd_pc(A, C, M, options)
 %                   matrices of size (m_k x r_k)
 %
 % OUTPUT:
-%   X       - [stucture] Tucker tensor containing the right-hand side where
+%   X       - [structure] Tucker tensor containing the right-hand side where
 %               X.core is a [numeric array] for the core tensor of size 
 %               r_1 x r_2 x ... x r_d where r_j <= maxrank
 %               X.factors is a [cell array] of the Tucker factor matrices 
