@@ -35,7 +35,7 @@ function [X, info] = tucker_sssd_pc(A, C, M, options)
 %                   2: subspaceCG)
 %               single_flag: [boolean] for single-precision for preconditioning
 %                    and alpha computation
-%               X0: [stucture] initial guess for the solution (tucker tensor)
+%               X0: [structure] initial guess for the solution (tucker tensor)
 %                   X0.core is a [numeric array] for the core tensor of size 
 %                   r_1 x r_2 x ... x r_d
 %                   X0.factors is a [cell array] of the Tucker factor 
