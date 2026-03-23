@@ -138,10 +138,8 @@ elseif  type_prec == 2 % Inner Outer Preconditioning
     options1.maxrank = 10; options1.maxrankP = (maxrank)*ones(d,1);
     options1.innsolver = 2; options1.innerouter = 0; 
     options1.single_flag = true;
-    options1.X0 = 0; % DOUBLE 
-    [wrk, ~] = tucker_sssd_pc((A), ccc, [], options1); % DOUBLE
-    wrk.core = double(wrk.core); % SINGLE 
-    wrk.factors = s2d_cell(wrk.factors); % SINGLE
+    options1.X0 = 0;
+    [wrk, ~] = tucker_sssd_pc((A), ccc, [], options1); 
     P = cell(1,d);
     for k=1:d, P{k}=wrk.factors{k};end
 end
@@ -302,11 +300,9 @@ while (rel_res > tol)  && (it <= maxit)
         for k=1:d, sz_p(k) = size(P{k},2); end
     elseif type_prec == 2 % Inner Outer Preconditioning
         ccc.core = Res_core;
-        ccc.factors = Res_fact; % DOUBLE
-        options1.X0 = (0); % DOUBLE
-        [wrk, ~] = tucker_sssd_pc((A), (ccc), [], options1); % DOUBLE
-        wrk.core = double(wrk.core); % SINGLE 
-        wrk.factors = s2d_cell(wrk.factors); % SINGLE
+        ccc.factors = Res_fact; 
+        options1.X0 = (0); 
+        [wrk, ~] = tucker_sssd_pc((A), (ccc), [], options1); 
         sz_p = zeros(1,d);
         for k=1:d
             P{k}=wrk.factors{k};
